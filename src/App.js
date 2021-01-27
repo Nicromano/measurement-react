@@ -6,8 +6,8 @@ function App() {
   
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-md-auto mx-auto ">
+      <div className="row justify-content-center align-items-center minh-100">
+        <div className="col-md-auto ">
             <Measurements />
         </div>
       </div>

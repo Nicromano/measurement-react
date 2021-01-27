@@ -3,9 +3,9 @@ import './Measurement.css';
 class mesaurements extends React.Component {
   render() {
     return (
-      <div className="card m-4 p-3 shadow">
+      <div className="card m-5 p-2 shadow">
         <div className="card-body">
-          <h5 className="card-title">Card title</h5>
+          <h5 className="card-title text-center">Cálculo de medidas</h5>
           <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
           <p className="card-text">
             Some quick example text to build on the card title and make up the
