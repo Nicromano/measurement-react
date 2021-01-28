@@ -1,0 +1,41 @@
+[33mcommit f4651c0018d31cdae0e84c59b1141c1a5227934e[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Nicromano <ljose297@gmail.com>
+Date:   Wed Jan 27 22:49:20 2021 -0500
+
+    Bug solucionado
+
+[33mcommit 410806cdc52974c58a600c6085f3b8814563324e[m
+Author: Nicromano <ljose297@gmail.com>
+Date:   Wed Jan 27 22:00:54 2021 -0500
+
+    Solucionado 90%. Empezando con depuración de bugs
+
+[33mcommit f61e20c9804474a3e1de88d185c542051ca52d15[m
+Author: Nicromano <ljose297@gmail.com>
+Date:   Wed Jan 27 14:56:20 2021 -0500
+
+    Problema con las unidades
+
+[33mcommit 389f92fd35e70537f5875a4372a6cb2d780505f6[m
+Author: Nicromano <ljose297@gmail.com>
+Date:   Tue Jan 26 22:19:12 2021 -0500
+
+    Fondo 2
+
+[33mcommit 8e5b7a0bf070b78e07ead8c749895fc388d2414c[m
+Author: Nicromano <ljose297@gmail.com>
+Date:   Tue Jan 26 22:18:32 2021 -0500
+
+    Fondo
+
+[33mcommit 81799319720ff5f9e53a25ff513529ea95396d3a[m
+Author: Nicromano <ljose297@gmail.com>
+Date:   Tue Jan 26 22:03:09 2021 -0500
+
+    Creando componente de medidas
+
+[33mcommit a163bd1df0a91919787ac9ed0aa77950cf059975[m
+Author: Nicromano <ljose297@gmail.com>
+Date:   Tue Jan 26 20:17:01 2021 -0500
+
+    Initialize project using Create React App
