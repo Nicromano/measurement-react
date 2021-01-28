@@ -12,6 +12,7 @@ import {
   acceleration,
   digital,
 } from "units-converter";
+import * as converter from 'units-converter';
 
 import "./Measurement.css";
 class mesaurements extends React.Component {
@@ -24,7 +25,8 @@ class mesaurements extends React.Component {
       button: false,
       entrada: prefijosDefault[0].unit, 
       salida: prefijosDefault[0].unit, 
-      value: ''
+      value: 0.0, 
+      result: 0.0
     };
 
     this.changeUnits = this.changeUnits.bind(this);
@@ -35,67 +37,49 @@ class mesaurements extends React.Component {
   }
 
   changeUnits(event) {
-    event.preventDefault();
+  /*   event.preventDefault(); */
 
     this.setState({
       valueMagnitud: event.target.value,
     });
+    let prefijos = null
     // eslint-disable-next-line default-case
     switch (event.target.value) {
       case "length":
-        this.setState({
-          valuePrefijos: length().list(),
-        });
+        prefijos = length().list()
         break;
       case "area":
-        this.setState({
-          valuePrefijos: area().list(),
-        });
+        prefijos = area().list()
         break;
       case "mass":
-        this.setState({
-          valuePrefijos: mass().list(),
-        });
+        prefijos = mass().list()
         break;
       case "volume":
-        this.setState({
-          valuePrefijos: volume().list(),
-        });
+        prefijos = volume().list()
         break;
       case "temperature":
-        this.setState({
-          valuePrefijos: temperature().list(),
-        });
+        prefijos = temperature().list()
         break;
       case "speed":
-        this.setState({
-          valuePrefijos: speed().list(),
-        });
+        prefijos = speed().list()
         break;
       case "voltage":
-        this.setState({
-          valuePrefijos: voltage().list(),
-        });
+        prefijos = voltage().list()
         break;
       case "force":
-        this.setState({
-          valuePrefijos: force().list(),
-        });
+        prefijos = force().list()
         break;
       case "acceleration":
-        this.setState({
-          valuePrefijos: acceleration().list(),
-        });
+        prefijos = acceleration().list()
         break;
       case "digital":
-        this.setState({
-          valuePrefijos: digital().list(),
-        });
+        prefijos = digital().list()
         break;
     }
     this.setState({
-      entrada: this.state.valuePrefijos[0].unit,
-      salida: this.state.valuePrefijos[0].unit
+      valuePrefijos: prefijos,
+      entrada: prefijos[0].unit,
+      salida: prefijos[0].unit
     })
   }
   validatorInput(event) {
@@ -108,7 +92,7 @@ class mesaurements extends React.Component {
           button: !this.state.button,
         });
         this.setState({
-          value: value_input
+          value: parseFloat(value_input)
         })
       }
     } else {
@@ -121,7 +105,53 @@ class mesaurements extends React.Component {
   }
   calcularMedida(event) {
     event.preventDefault();
-
+    let resultado = 0
+    // eslint-disable-next-line default-case
+    switch (this.state.valueMagnitud) {
+      case "length":
+        resultado = converter.length(this.state.value).from(this.state.entrada).to(this.state.salida).value
+        break;
+      case "area":
+        resultado = converter.area(this.state.value).from(this.state.entrada).to(this.state.salida).value
+      
+        break;
+      case "mass":
+        resultado = converter.mass(this.state.value).from(this.state.entrada).to(this.state.salida).value
+        break;
+      case "volume":
+        resultado = converter.volume(this.state.value).from(this.state.entrada).to(this.state.salida).value
+      
+        break;
+      case "temperature":
+        resultado = converter.temperature(this.state.value).from(this.state.entrada).to(this.state.salida).value
+      
+        break;
+      case "speed":
+        resultado = converter.speed(this.state.value).from(this.state.entrada).to(this.state.salida).value
+        
+        break;
+      case "voltage":
+        resultado = converter.voltage(this.state.value).from(this.state.entrada).to(this.state.salida).value
+      
+        break;
+      case "force":
+        resultado = converter.force(this.state.value).from(this.state.entrada).to(this.state.salida).value
+      
+        break;
+      case "acceleration":
+        resultado = converter.acceleration(this.state.value).from(this.state.entrada).to(this.state.salida).value
+      
+        break;
+      case "digital":
+        resultado = converter.digital(this.state.value).from(this.state.entrada).to(this.state.salida).value
+      
+        break;
+        
+    }
+    this.setState({
+      result: resultado
+    })
+    console.log('resultado', resultado)
     console.log(this.state)
   }
   cambiaMedida(event) {
@@ -140,6 +170,12 @@ class mesaurements extends React.Component {
         </option>
       );
     });
+    let result = null
+    if (this.state.result === 0){
+      result = <p className="resultado">0.00</p>
+    }else {
+      result = <p className="resultado">{this.state.result}</p>
+    }
     return (
       <div className="card m-5 p-2 shadow">
         <div className="card-body">
@@ -225,7 +261,8 @@ class mesaurements extends React.Component {
                 Calcular
               </button>
               <h3 className="mt-2 font-weight-bolder">Resultado: </h3>
-              <p className="resultado">0.00</p>
+              {result}
+              
             </div>
           </form>
         </div>
